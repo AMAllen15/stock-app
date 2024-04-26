@@ -1,29 +1,30 @@
-// Write your Search component hereimport { Form, Button, Row, Col, Container } from "react-bootstrap";
-import { Form, Button, Row, Col, Container } from "react-bootstrap";
+import React from "react";
 import { BsSearch } from "react-icons/bs";
 
 const Search = ({ searchStringUpdated }) => {
-  const submitSearchString = (event) => searchStringUpdated(event.target.value);
+  const submitSearchString = (event) => {
+    event.preventDefault();
+    searchStringUpdated(event.target.elements.search.value);
+  };
 
   return (
-    <Container>
-      <Form onSubmit={(event) => event.preventDefault()} className="mt-2 mb-4">
-        <Row>
-          <Col xs={11}>
-            <Form.Control
-              type="text"
-              placeholder="Search by Symbol..."
-              onChange={submitSearchString}
-            />
-          </Col>
-          <Col xs={1}>
-            <Button variant="primary" type="submit">
-              <BsSearch />
-            </Button>
-          </Col>
-        </Row>
-      </Form>
-    </Container>
+    <div className="search-container">
+      <form onSubmit={submitSearchString} className="search-form">
+        <div className="search-input-container">
+          <input
+            type="text"
+            name="search"
+            placeholder="Search by Symbol..."
+            onChange={(e) => searchStringUpdated(e.target.value)}
+            className="search-input"
+            autoComplete="off"
+          />
+          <button type="submit" className="search-button">
+            <BsSearch />
+          </button>
+        </div>
+      </form>
+    </div>
   );
 };
 

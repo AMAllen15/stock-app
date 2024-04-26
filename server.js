@@ -70,11 +70,3 @@ debug.enabled = true; // Enable verbose logging
 
 const PORT = process.env.PORT || 4000;
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
-//What needs to be don:
-//1. I need to get the news section up and running if I can
-//2. Need to add social collaboration in the stock details page
-//3. Need to be able to add a stock to a watchlist or portfolio from Stock details page
-//4. Need to create the portfolio page
-//5. Need to build unit tests for the app
-//6. Need to deploy to the Cloud

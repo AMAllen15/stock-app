@@ -5,7 +5,6 @@ const NewsComponent = () => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    console.log("API Key:", process.env.REACT_APP_NEWSAPI_KEY); // This should log the API key
     const loadNews = async () => {
       const fetchedArticles = await fetchNews("stock market");
       setArticles(fetchedArticles);
@@ -15,17 +14,24 @@ const NewsComponent = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Market News</h2>
-      {articles.map((article, index) => (
-        <div key={index}>
-          <h3>{article.title}</h3>
-          <p>{article.description}</p>
-          <a href={article.url} target="_blank" rel="noopener noreferrer">
-            Read more
-          </a>
-        </div>
-      ))}
+    <div className="news-container">
+      <h2 className="news-title">Market News</h2>
+      <div className="news-grid">
+        {articles.map((article, index) => (
+          <div className="news-card" key={index}>
+            <h3 className="news-card-title">{article.title}</h3>
+            <p className="news-card-description">{article.description}</p>
+            <a
+              href={article.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="news-read-more"
+            >
+              Read more
+            </a>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

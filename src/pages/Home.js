@@ -14,7 +14,6 @@ const Home = () => {
     <>
       <Search searchStringUpdated={handleSearchStringUpdate} />
       <Cards searchString={searchString} />
-      <Chat />
       <NewsComponent />
     </>
   );

@@ -56,17 +56,6 @@ const Card = ({ symbol }) => {
             </button>
           </div>
         </div>
-
-        <div className="button_container">
-          <button
-            onClick={toggleFavorite}
-            className={`card_btn favorite-btn ${
-              isFavorited ? "favorited" : ""
-            }`}
-          >
-            {isFavorited ? "Unfavorite" : "Add to Favorites"}
-          </button>
-        </div>
       </div>
     </>
   );
